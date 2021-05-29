@@ -1,0 +1,24 @@
+{
+  "name": "proyecto-final-rollingcode-backend",
+  "version": "1.0.0",
+  "description": "Proyecto final backend RollingCode",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./index.js"
+  },
+  "keywords": [
+    "ProyectoFinal",
+    "api",
+    "backend"
+  ],
+  "author": "Caro Delgado Rosendo Alves Nicolas Gomez Agustin Gomez Urrutia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
