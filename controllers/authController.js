@@ -9,7 +9,7 @@ exports.register = async (req, res) => {
     if (!errores.isEmpty()) {
         return res.status(400).json({ msg: errores.array() });
     }
-    const { email, password, nombreUsuario } = req.body;
+    const { email, password, nombreUsuario, secretWord } = req.body;
 
     try {
         //Revisar usuario registrado
@@ -30,6 +30,7 @@ exports.register = async (req, res) => {
         //hashear el password
         const salt = await bcryptjs.genSalt(10);
         usuario.password = await bcryptjs.hash(password, salt);
+        usuario.secretWord = await bcryptjs.hash(secretWord, salt);
 
         //guardar usuario
         await usuario.save();
@@ -100,9 +101,8 @@ exports.login = async (req, res) => {
 //Obtener que usuario esta autenticado
 exports.getUser = async (req, res) => {
     try {
-        const usuario = await Usuario.findById(req.usuario.id).select('-password -registro');
-
-        res.json({ usuario });
+        const usuario = await Usuario.findById(req.usuario.id).select('-password -registro -__v');
+        res.send(usuario);
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error');
