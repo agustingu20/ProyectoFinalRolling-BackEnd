@@ -5,6 +5,7 @@ require('dotenv').config();
 const morgan = require('morgan');
 const usuariosRoutes = require('./routes/usuariosRoute');
 const authRoutes = require('./routes/authRoute');
+const productoRoute = require('./routes/productoRoute');
 const cors = require('cors');
 
 // crear el servidor
@@ -27,6 +28,7 @@ app.use(cors());
 //importar rutas
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/productos', productoRoute);
 
 // puerto y arranque del servidor
 app.listen(4000, () => {
