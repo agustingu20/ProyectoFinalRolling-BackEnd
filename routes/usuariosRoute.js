@@ -8,6 +8,6 @@ const usuarioValidations = require('../validations/usuariosValidaciones');
 // api/usuarios
 router.post('/', usuarioValidations.crearUsuario, usuarioController.crearUsuario);
 
-// router.get('/', usuarioController.obtenerUsuarios);
+router.get('/', usuarioController.getUsuarios);
 
 module.exports = router;

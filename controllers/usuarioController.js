@@ -43,3 +43,13 @@ exports.crearUsuario = async (req, res) => {
         res.status(400).send('Hubo un error');
     }
 };
+
+exports.getUsuarios = async (req, res) => {
+    try {
+        const usuarios = await Usuario.find().populate({ path: 'creator', select: 'nombre' });
+        res.send(usuarios);
+    } catch (error) {
+        res.status(400).json({ msg: 'error al obtener los productos' });
+        console.log('🚀 - error', error);
+    }
+};
