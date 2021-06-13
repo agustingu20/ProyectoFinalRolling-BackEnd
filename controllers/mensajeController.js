@@ -11,3 +11,13 @@ exports.enviarMensaje = async (req, res) => {
         console.log('🚀 - error', error);
     }
 };
+
+exports.recibirMensaje = async (req, res) => {
+    try {
+        const mensajes = await Mensaje.find();
+        res.send(mensajes);
+    } catch (error) {
+        res.status(400).json({ msg: 'error al recibir el mensaje' });
+        console.log('🚀 - error', error);
+    }
+};
