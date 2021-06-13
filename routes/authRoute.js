@@ -22,4 +22,5 @@ router.get('/', authMiddleware, authController.getUser);
 // api/mensaje
 router.post('/mensaje', mensajeController.enviarMensaje);
 
+
 module.exports = router;
