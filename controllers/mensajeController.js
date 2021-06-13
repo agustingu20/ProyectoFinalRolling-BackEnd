@@ -2,8 +2,8 @@ const Mensaje = require('../models/MensajeModel');
 
 exports.enviarMensaje = async (req, res) => {
     try {
-        const {  body } = req;
-        const nuevoMensaje = new Mensaje({ ...body, createdAt: Date.now(), });
+        const { body } = req;
+        const nuevoMensaje = new Mensaje({ ...body, createdAt: Date.now() });
         await nuevoMensaje.save();
         res.send(nuevoMensaje);
     } catch (error) {

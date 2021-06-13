@@ -9,7 +9,7 @@ exports.crearUsuario = async (req, res) => {
         return res.status(400).json({ msg: errores.array() });
     }
 
-    const { email, password, nombreUsuario } = req.body;
+    const { email, password, nombreUsuario, secretWord } = req.body;
     try {
         // Revisando q el email sea unico
         let usuarioEncontrado = await Usuario.findOne({ email });
@@ -29,6 +29,7 @@ exports.crearUsuario = async (req, res) => {
         //hashear el password
         const salt = await bcryptjs.genSalt(10);
         usuario.password = await bcryptjs.hash(password, salt);
+        usuario.secretWord = await bcryptjs.hash(secretWord, salt);
 
         //guardar usuario
         await usuario.save();

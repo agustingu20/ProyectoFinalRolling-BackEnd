@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const productoController = require('../controllers/productoController');
 const authMiddleware = require("../middleware/authMiddleware");
@@ -11,4 +11,3 @@ router.get('/', productoController.getProductos);
 
 
 module.exports = router;
-
