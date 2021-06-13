@@ -10,5 +10,6 @@ router.post('/', usuarioValidations.crearUsuario, usuarioController.crearUsuario
 router.put('/', authMiddleware, usuarioController.updateUser);
 
 router.get('/', usuarioController.getUsuarios);
+router.get('/:usuarioID', usuarioController.getUsuario);
 
 module.exports = router;

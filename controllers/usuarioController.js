@@ -49,7 +49,18 @@ exports.getUsuarios = async (req, res) => {
         const usuarios = await Usuario.find().populate({ path: 'creator', select: 'nombre' });
         res.send(usuarios);
     } catch (error) {
-        res.status(400).json({ msg: 'error al obtener los productos' });
+        res.status(400).json({ msg: 'error al obtener los usuarios' });
+        console.log('🚀 - error', error);
+    }
+};
+
+exports.getUsuario = async (req, res) => {
+    try {
+        const { usuarioID } = req.params;
+        const usuario = await Usuario.findById(usuarioID);
+        res.send(usuario);
+    } catch (error) {
+        res.status(400).json({ msg: 'error al obtener el ID del usuario' });
         console.log('🚀 - error', error);
     }
 };
