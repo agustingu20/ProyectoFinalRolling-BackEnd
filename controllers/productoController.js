@@ -13,16 +13,16 @@ exports.createProducto = async (req, res) => {
     }
 };
 
-// exports.getProducto = async (req, res) => {
-//     try {
-//         const { productoId } = req.params;
-//         const producto = await Producto.findById(productoId);
-//         res.send(producto);
-//     } catch (error) {
-//         res.status(400).json({ msg: 'error al obtener el producto' });
-//         console.log('🚀 - error', error);
-//     }
-// };
+exports.getProducto = async (req, res) => {
+    try {
+        const { productoId } = req.params;
+        const producto = await Producto.findById(productoId);
+        res.send(producto);
+    } catch (error) {
+        res.status(400).json({ msg: 'error al obtener el producto' });
+        console.log('🚀 - error', error);
+    }
+};
 
 // exports.deleteProducto = async (req, res) => {
 //     try {
