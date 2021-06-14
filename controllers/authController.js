@@ -91,7 +91,7 @@ exports.login = async (req, res) => {
             },
             (error, token) => {
                 if (error) throw error;
-                res.json({ token });
+                res.json({ token, categoryUser: usuario.categoryUser });
             }
         );
     } catch (error) {
