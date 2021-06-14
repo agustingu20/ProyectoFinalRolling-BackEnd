@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const usuariosRoutes = require('./routes/usuariosRoute');
 const authRoutes = require('./routes/authRoute');
 const productoRoute = require('./routes/productoRoute');
+const ventasRoutes = require('./routes/ventasRoute');
 const cors = require('cors');
 
 // crear el servidor
@@ -29,6 +30,7 @@ app.use(cors());
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/productos', productoRoute);
+app.use('/api/ventas', ventasRoutes);
 
 // puerto y arranque del servidor
 app.listen(process.env.PORT || 4000, () => {

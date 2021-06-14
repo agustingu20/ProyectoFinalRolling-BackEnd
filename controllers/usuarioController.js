@@ -43,3 +43,36 @@ exports.crearUsuario = async (req, res) => {
         res.status(400).send('Hubo un error');
     }
 };
+
+exports.getUsuarios = async (req, res) => {
+    try {
+        const usuarios = await Usuario.find().populate({ path: 'creator', select: 'nombre' });
+        res.send(usuarios);
+    } catch (error) {
+        res.status(400).json({ msg: 'error al obtener los usuarios' });
+        console.log('🚀 - error', error);
+    }
+};
+
+exports.getUsuario = async (req, res) => {
+    try {
+        const { usuarioID } = req.params;
+        const usuario = await Usuario.findById(usuarioID);
+        res.send(usuario);
+    } catch (error) {
+        res.status(400).json({ msg: 'error al obtener el ID del usuario' });
+        console.log('🚀 - error', error);
+    }
+};
+
+exports.updateUser = async (req, res) => {
+    try {
+        const { usuario, body } = req;
+        const updatedUser = await Usuario.findByIdAndUpdate(usuario.id, body, {
+            new: true,
+        });
+        res.send(updatedUser);
+    } catch (error) {
+        res.status(400).send('Hubo un error al actualizar el usuario');
+    }
+};
