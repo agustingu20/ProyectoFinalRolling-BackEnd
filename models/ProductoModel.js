@@ -6,6 +6,16 @@ const productoSchema = mongoose.Schema({
         required: true,
         trim: true,
     },
+    urlImage: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    estado: {
+        type: String,
+        
+        trim: true,
+    },
     descripcion: {
         type: String,
         required: true,
@@ -17,6 +27,11 @@ const productoSchema = mongoose.Schema({
         trim: true,
     },
     pantalla: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    pantallaDescripcion: {
         type: String,
         required: true,
         trim: true,
@@ -41,16 +56,17 @@ const productoSchema = mongoose.Schema({
 
         trim: true,
     },
+    camaraDescripcion: {
+        type: String,
+
+        trim: true,
+    },
     categoria: {
         type: String,
         required: true,
         trim: true,
     },
-    // urlImage: {
-    //     type: String,
-    //     required: true,
-    //     trim: true,
-    // },
+
     // creator: {
     //     type: Schema.Types.ObjectId,
     //     ref: 'Usuario',
