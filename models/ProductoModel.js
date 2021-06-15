@@ -13,12 +13,10 @@ const productoSchema = mongoose.Schema({
     },
     estado: {
         type: String,
-        
         trim: true,
     },
     descripcion: {
         type: String,
-        required: true,
         trim: true,
     },
     precio: {
@@ -28,37 +26,50 @@ const productoSchema = mongoose.Schema({
     },
     pantalla: {
         type: String,
-        required: true,
         trim: true,
     },
     pantallaDescripcion: {
         type: String,
-        required: true,
         trim: true,
     },
     redes: {
         type: String,
-
         trim: true,
     },
     procesador: {
         type: String,
-
         trim: true,
     },
     almacenamiento: {
         type: String,
-
+        trim: true,
+    },
+    almacenamientoDescripcion: {
+        type: String,
         trim: true,
     },
     camara: {
         type: String,
-
         trim: true,
     },
     camaraDescripcion: {
         type: String,
-
+        trim: true,
+    },
+    bateria: {
+        type: String,
+        trim: true,
+    },
+    bateriaDescripcion: {
+        type: String,
+        trim: true,
+    },
+    conector: {
+        type: String,
+        trim: true,
+    },
+    conectorDescripcion: {
+        type: String,
         trim: true,
     },
     categoria: {
