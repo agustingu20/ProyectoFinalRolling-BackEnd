@@ -46,11 +46,11 @@ const productoSchema = mongoose.Schema({
         required: true,
         trim: true,
     },
-    // urlImage: {
-    //     type: String,
-    //     required: true,
-    //     trim: true,
-    // },
+    urlImage: {
+        type: String,
+        required: true,
+        trim: true,
+    },
     // creator: {
     //     type: Schema.Types.ObjectId,
     //     ref: 'Usuario',
@@ -61,5 +61,5 @@ const productoSchema = mongoose.Schema({
     //     default: Date.now(),
     // },
 });
- 
+
 module.exports = mongoose.model("Producto", productoSchema);
