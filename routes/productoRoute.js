@@ -8,6 +8,8 @@ router.get('/', productoController.getProductos);
 router.get('/:productoId', productoController.getProducto);
 
 // router.delete('/:productoId', authMiddleware, productoController.deleteProducto);
+// router.delete('/:productoId', productoController.deleteProducto);
+router.put('/', productoController.updateProducto);
 
 
 module.exports = router;
