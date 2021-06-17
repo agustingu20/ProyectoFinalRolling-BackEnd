@@ -16,6 +16,7 @@ exports.createProducto = async (req, res) => {
 exports.getProducto = async (req, res) => {
     try {
         const { productoId } = req.params;
+        console.log("exports.getProducto= ~ productoId", productoId)
         const producto = await Producto.findById(productoId);
         res.send(producto);
     } catch (error) {
@@ -26,12 +27,12 @@ exports.getProducto = async (req, res) => {
 
 // exports.deleteProducto = async (req, res) => {
 //     try {
-//         const { usuario } = req;
+//         // const { usuario } = req;
 //         const { productoId } = req.params;
 //         const producto = await Producto.findById(productoId);
-//         if (!producto.creator.equals(usuario.id)) {
-//             return res.status(403).json({ msg: 'no tiene permitido eliminar este Producto' });
-//         }
+//         // if (!producto.creator.equals(usuario.id)) {
+//         //     return res.status(403).json({ msg: 'no tiene permitido eliminar este Producto' });
+//         // }
 //         await producto.delete();
 //         res.send({ msg: 'Producto eliminado' });
 //     } catch (error) {
@@ -47,5 +48,17 @@ exports.getProductos = async (req, res) => {
     } catch (error) {
         res.status(400).json({ msg: 'error al obtener los productos' });
         console.log('🚀 - error', error);
+    }
+};
+
+exports.updateProducto = async (req, res) => {
+    try {
+        const { producto, body } = req;
+        const updatedProducto = await Producto.findByIdAndUpdate(producto.id, body, {
+            new: true,
+        });
+        res.send(updatedProducto);
+    } catch (error) {
+        res.status(400).send('Hubo un error al editar el producto');
     }
 };
