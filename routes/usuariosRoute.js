@@ -8,7 +8,8 @@ const usuarioValidations = require('../validations/usuariosValidaciones');
 // api/usuarios
 router.post('/', usuarioValidations.crearUsuario, usuarioController.crearUsuario);
 router.put('/', authMiddleware, usuarioController.updateUser);
-
+// router.put('/:usuarioID', authMiddleware, usuarioController.updateUserAdmin);
+router.delete('/:usuarioID', usuarioController.deleteUsuario);
 router.get('/', usuarioController.getUsuarios);
 router.get('/:usuarioID', usuarioController.getUsuario);
 

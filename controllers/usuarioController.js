@@ -76,3 +76,28 @@ exports.updateUser = async (req, res) => {
         res.status(400).send('Hubo un error al actualizar el usuario');
     }
 };
+
+exports.deleteUsuario = async (req, res) => {
+    try {
+        const { usuarioID } = req.params;
+        const usuario = await Usuario.findById(usuarioID);
+
+        await usuario.delete();
+        res.send({ msg: 'Usuario eliminado' });
+    } catch (error) {
+        res.status(400).json({ msg: 'error al eliminar el usuario' });
+        console.log('🚀 - error', error);
+    }
+};
+
+// exports.updateUserAdmin = async (req, res) => {
+//     try {
+//         const { usuario, body } = req;
+//         const updatedUser = await Usuario.findByIdAndUpdate(usuario.id, body, {
+//             new: true,
+//         });
+//         res.send(updatedUser);
+//     } catch (error) {
+//         res.status(400).send('Hubo un error al actualizar el usuario');
+//     }
+// };

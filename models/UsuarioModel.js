@@ -45,6 +45,10 @@ const UsuariosSchema = mongoose.Schema({
         type: String,
         trim: true,
     },
+    blockUser: {
+        type: String,
+        trim: true,
+    },
     registro: {
         type: Date,
         default: Date.now(),
