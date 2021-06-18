@@ -16,7 +16,6 @@ exports.createProducto = async (req, res) => {
 exports.getProducto = async (req, res) => {
     try {
         const { productoId } = req.params;
-        console.log("exports.getProducto= ~ productoId", productoId)
         const producto = await Producto.findById(productoId);
         res.send(producto);
     } catch (error) {
