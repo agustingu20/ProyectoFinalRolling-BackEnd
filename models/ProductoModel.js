@@ -82,6 +82,10 @@ const productoSchema = mongoose.Schema({
         required: true,
         trim: true,
     },
+    condicion: {
+        type: String,
+        trim: true,
+    },
     // creator: {
     //     type: Schema.Types.ObjectId,
     //     ref: 'Usuario',
