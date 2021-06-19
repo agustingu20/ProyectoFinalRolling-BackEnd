@@ -1,5 +1,13 @@
 const mongoose = require("mongoose");
 const MensajesSchema = mongoose.Schema({
+    fecha: {
+        type: Date,
+        default: Date.now(),
+    },
+    correo: {
+        type: String,
+        required: true,
+    },
     correo: {
         type: String,
         required: true,
@@ -14,6 +22,10 @@ const MensajesSchema = mongoose.Schema({
         type: String,
         required: true,
         trim: true,
+    },
+    estado: {
+        type: String,
+        default: "No leído",
     },
     createdAt: {
         type: Date,

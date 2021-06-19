@@ -25,5 +25,5 @@ router.get('/mensaje', mensajeController.recibirMensajes);
 router.get('/mensaje/:mensajeID', mensajeController.recibirMensaje);
 router.put('/mensaje', mensajeController.actualizarMensaje);
 router.delete('/mensaje/:mensajeID', mensajeController.eliminarMensaje);
-router.put('/mensaje/:mensajeID', mensajeController.actualizarMensaje);
+
 module.exports = router;
