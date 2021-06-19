@@ -7,10 +7,6 @@ const MensajesSchema = mongoose.Schema({
     correo: {
         type: String,
         required: true,
-    },
-    correo: {
-        type: String,
-        required: true,
         trim: true,
     },
     asunto: {

@@ -36,13 +36,12 @@ exports.recibirMensaje = async (req, res) => {
 exports.actualizarMensaje = async (req, res) => {
     try {
         const { body } = req;
-        console.log("exports.actualizarMensaje -> body", body)
         const updatedMensaje = await Mensaje.findByIdAndUpdate(body._id, body, {
             new: true,
         });
         res.send(updatedMensaje);
     } catch (error) {
-        res.status(400).send('Hubo un error al editar el estado del mensaje');
+        res.status(400).send('Hubo un error al editar el producto');
     }
 };
 
