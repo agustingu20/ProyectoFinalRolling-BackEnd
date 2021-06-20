@@ -5,17 +5,7 @@ const VentasSchema = mongoose.Schema({
         required: true,
         trim: true,
     },
-    descripcion: {
-        type: String,
-        required: true,
-        trim: true,
-    },
     precio: {
-        type: String,
-        required: true,
-        trim: true,
-    },
-    urlImage: {
         type: String,
         required: true,
         trim: true,
