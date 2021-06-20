@@ -50,7 +50,6 @@ exports.getProductos = async (req, res) => {
 exports.updateProducto = async (req, res) => {
     try {
         const { body } = req;
-        console.log("🚀 ~ file: productoController.js ~ line 53 ~ exports.updateProducto= ~ body", body)
         const updatedProducto = await Producto.findByIdAndUpdate(body._id, body, {
             new: true,
         });

@@ -23,7 +23,9 @@ router.get('/', authMiddleware, authController.getUser);
 router.post('/mensaje', mensajeController.enviarMensaje);
 router.get('/mensaje', mensajeController.recibirMensajes);
 router.get('/mensaje/:mensajeID', mensajeController.recibirMensaje);
+/* router.get('/mensaje/:estado', mensajeController.contarMensajes); */
 router.put('/mensaje', mensajeController.actualizarMensaje);
 router.delete('/mensaje/:mensajeID', mensajeController.eliminarMensaje);
+router.put('/usuarios', authMiddleware, authController.updateUserAdmin);
 
 module.exports = router;

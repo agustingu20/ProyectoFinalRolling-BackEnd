@@ -91,7 +91,7 @@ exports.login = async (req, res) => {
             },
             (error, token) => {
                 if (error) throw error;
-                res.json({ token, categoryUser: usuario.categoryUser });
+                res.json({ token, categoryUser: usuario.categoryUser, blockUser: usuario.blockUser });
             }
         );
     } catch (error) {
@@ -107,5 +107,17 @@ exports.getUser = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error');
+    }
+};
+
+exports.updateUserAdmin = async (req, res) => {
+    try {
+        const { body } = req;
+        const updatedUserAdmin = await Usuario.findByIdAndUpdate(body._id, body, {
+            new: true,
+        });
+        res.send(updatedUserAdmin);
+    } catch (error) {
+        res.status(400).send('Hubo un error al actualizar el usuario');
     }
 };
