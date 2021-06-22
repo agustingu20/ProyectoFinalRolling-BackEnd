@@ -56,14 +56,3 @@ exports.eliminarMensaje = async (req, res) => {
         console.log('🚀 - error', error);
     }
 };
-
-/* exports.contarMensajes = async (req, res) => {
-    try {
-        const { estado } = req.params;
-        const mensajeEstado = await Mensaje.findBy(estado);
-        res.send(mensajeEstado);
-    } catch (error) {
-        res.status(400).json({ msg: 'error al obtener el ID del mensaje' });
-        console.log('🚀 - error', error);
-    }
-}; */

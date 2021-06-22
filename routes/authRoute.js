@@ -3,7 +3,6 @@ const router = express.Router();
 const { check } = require('express-validator');
 const usuarioValidations = require('../validations/usuariosValidaciones');
 const authController = require('../controllers/authController.js');
-const mensajeController = require('../controllers/mensajeController.js');
 const authMiddleware = require('../middleware/authMiddleware');
 
 // api/auth
@@ -19,13 +18,6 @@ router.post('/login',
 
 router.get('/', authMiddleware, authController.getUser);
 
-// api/mensaje
-router.post('/mensaje', mensajeController.enviarMensaje);
-router.get('/mensaje', mensajeController.recibirMensajes);
-router.get('/mensaje/:mensajeID', mensajeController.recibirMensaje);
-/* router.get('/mensaje/:estado', mensajeController.contarMensajes); */
-router.put('/mensaje', mensajeController.actualizarMensaje);
-router.delete('/mensaje/:mensajeID', mensajeController.eliminarMensaje);
 router.put('/usuarios', authMiddleware, authController.updateUserAdmin);
 
 module.exports = router;
