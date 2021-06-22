@@ -1,5 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
+
+
 const productoSchema = mongoose.Schema({
     nombre: {
         type: String,
@@ -20,7 +22,7 @@ const productoSchema = mongoose.Schema({
         trim: true,
     },
     precio: {
-        type: String,
+        type: Schema.Types.Mixed,
         required: true,
         trim: true,
     },
@@ -97,4 +99,4 @@ const productoSchema = mongoose.Schema({
     // },
 });
 
-module.exports = mongoose.model("Producto", productoSchema);
+module.exports = mongoose.model('Producto', productoSchema);
