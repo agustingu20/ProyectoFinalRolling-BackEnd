@@ -76,3 +76,15 @@ exports.updateUser = async (req, res) => {
         res.status(400).send('Hubo un error al actualizar el usuario');
     }
 };
+
+exports.updateUserId = async (req, res) => {
+    try {
+        const { usuario, body } = req;
+        const updatedUser = await Usuario.findByIdAndUpdate(usuario.id, body, {
+            new: true,
+        });
+        res.send(updatedUser);
+    } catch (error) {
+        res.status(400).send('Hubo un error al actualizar el usuario');
+    }
+};
