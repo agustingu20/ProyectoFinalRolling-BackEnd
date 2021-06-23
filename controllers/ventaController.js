@@ -21,24 +21,24 @@ exports.ventaProducto = async (req, res) => {
     }
 };
 
-exports.carrito = async (req, res) => {
-    try {
-        const { productoId } = req.params;
-        const producto = await VentaProducto.findById(productoId);
-        res.send(producto);
-    } catch (error) {
-        res.status(400).json({ msg: 'error al obtener meme' });
-        console.log('error', error);
-    }
-};
+// exports.carrito = async (req, res) => {
+//     try {
+//         const { productoId } = req.params;
+//         const producto = await VentaProducto.findById(productoId);
+//         res.send(producto);
+//     } catch (error) {
+//         res.status(400).json({ msg: 'error al obtener meme' });
+//         console.log('error', error);
+//     }
+// };
 
-exports.deleteCarrito = async (req, res) => {
-    try {
-        const { productoId } = req.params;
-        await VentaProducto.findByIdAndDelete(productoId);
-        res.send({ msg: 'producto eliminado de carrito' });
-    } catch (error) {
-        res.status(400).json({ msg: 'error al eliminar producto' });
-        console.log('error', error);
-    }
-};
+// exports.deleteCarrito = async (req, res) => {
+//     try {
+//         const { productoId } = req.params;
+//         await VentaProducto.findByIdAndDelete(productoId);
+//         res.send({ msg: 'producto eliminado de carrito' });
+//     } catch (error) {
+//         res.status(400).json({ msg: 'error al eliminar producto' });
+//         console.log('error', error);
+//     }
+// };

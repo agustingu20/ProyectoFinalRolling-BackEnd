@@ -77,6 +77,7 @@ exports.updateUser = async (req, res) => {
     }
 };
 
+<<<<<<< HEAD
 exports.updateUserId = async (req, res) => {
     try {
         const { usuario, body } = req;
@@ -88,3 +89,17 @@ exports.updateUserId = async (req, res) => {
         res.status(400).send('Hubo un error al actualizar el usuario');
     }
 };
+=======
+exports.deleteUsuario = async (req, res) => {
+    try {
+        const { usuarioID } = req.params;
+        const usuario = await Usuario.findById(usuarioID);
+
+        await usuario.delete();
+        res.send({ msg: 'Usuario eliminado' });
+    } catch (error) {
+        res.status(400).json({ msg: 'error al eliminar el usuario' });
+        console.log('🚀 - error', error);
+    }
+};
+>>>>>>> 340de256227b6c4aa1072dac912fcbd97d891ae4

@@ -7,6 +7,7 @@ const usuariosRoutes = require('./routes/usuariosRoute');
 const authRoutes = require('./routes/authRoute');
 const productoRoute = require('./routes/productoRoute');
 const ventasRoutes = require('./routes/ventasRoute');
+const mensajesRoute = require('./routes/mensajesRoute');
 const cors = require('cors');
 
 // crear el servidor
@@ -31,6 +32,7 @@ app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/productos', productoRoute);
 app.use('/api/ventas', ventasRoutes);
+app.use('/api/mensaje', mensajesRoute);
 
 // puerto y arranque del servidor
 app.listen(process.env.PORT || 4000, () => {

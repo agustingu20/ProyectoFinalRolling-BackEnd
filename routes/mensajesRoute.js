@@ -1,13 +1,14 @@
 // Rutas para enviar mensajes
 const express = require('express');
-const mensajeController = require('../controllers/mensajeController');
 const router = express.Router();
-const mensajesValidaciones = require('../validations/mensajesValidaciones');
+const mensajeController = require('../controllers/mensajeController');
 
-// Crear un usuario
-// api/usuarios
-router.post('/', mensajesValidaciones.crearUsuario, mensajeController.enviarMensaje);
 
-// router.get('/', usuarioController.obtenerUsuarios);
+// api/mensaje
+router.post('/', mensajeController.enviarMensaje);
+router.get('/', mensajeController.recibirMensajes);
+router.get('/:mensajeID', mensajeController.recibirMensaje);
+router.put('/', mensajeController.actualizarMensaje);
+router.delete('/:mensajeID', mensajeController.eliminarMensaje);
 
 module.exports = router;

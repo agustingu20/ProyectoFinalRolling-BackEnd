@@ -45,9 +45,9 @@ const UsuariosSchema = mongoose.Schema({
         type: String,
         trim: true,
     },
-    habilitado: {
-        type: Boolean,
-        default: true,
+    blockUser: {
+        type: String,
+        trim: true,
     },
     registro: {
         type: Date,
