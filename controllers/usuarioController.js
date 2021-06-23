@@ -77,6 +77,19 @@ exports.updateUser = async (req, res) => {
     }
 };
 
+<<<<<<< HEAD
+exports.updateUserId = async (req, res) => {
+    try {
+        const { usuario, body } = req;
+        const updatedUser = await Usuario.findByIdAndUpdate(usuario.id, body, {
+            new: true,
+        });
+        res.send(updatedUser);
+    } catch (error) {
+        res.status(400).send('Hubo un error al actualizar el usuario');
+    }
+};
+=======
 exports.deleteUsuario = async (req, res) => {
     try {
         const { usuarioID } = req.params;
@@ -89,3 +102,4 @@ exports.deleteUsuario = async (req, res) => {
         console.log('🚀 - error', error);
     }
 };
+>>>>>>> 340de256227b6c4aa1072dac912fcbd97d891ae4
