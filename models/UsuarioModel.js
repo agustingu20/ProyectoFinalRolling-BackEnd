@@ -36,11 +36,6 @@ const UsuariosSchema = mongoose.Schema({
         required: true,
         trim: true,
     },
-    secretWord: {
-        type: String,
-        required: true,
-        trim: true,
-    },
     categoryUser: {
         type: String,
         trim: true,

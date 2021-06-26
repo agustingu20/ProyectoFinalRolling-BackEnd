@@ -30,7 +30,6 @@ exports.register = async (req, res) => {
         //hashear el password
         const salt = await bcryptjs.genSalt(10);
         usuario.password = await bcryptjs.hash(password, salt);
-        usuario.secretWord = await bcryptjs.hash(secretWord, salt);
 
         //guardar usuario
         await usuario.save();
