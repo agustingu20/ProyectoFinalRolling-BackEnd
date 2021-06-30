@@ -5,7 +5,7 @@ const ventaController = require('../controllers/ventaController');
 const authMiddleware = require('../middleware/authMiddleware');
 
 router.post('/', ventaController.ventaProducto);
-// router.get('/:productoId', authMiddleware, ventaController.carrito);
-// router.delete('/:productoId', ventaController.deleteCarrito);
+router.get('/', ventaController.getVentas);
+
 
 module.exports = router;
