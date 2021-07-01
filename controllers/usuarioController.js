@@ -9,7 +9,7 @@ exports.crearUsuario = async (req, res) => {
         return res.status(400).json({ msg: errores.array() });
     }
 
-    const { email, password, nombreUsuario, secretWord } = req.body;
+    const { email, password, nombreUsuario } = req.body;
     try {
         // Revisando q el email sea unico
         let usuarioEncontrado = await Usuario.findOne({ email });
