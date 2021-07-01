@@ -1,10 +1,21 @@
 const Producto = require('../models/ProductoModel');
 
 exports.createProducto = async (req, res) => {
+    const { nombre, descripcion } = req.body;
     try {
+        let productoEncontrado = await Producto.findOne({ nombre });
+        let descripcionEncontrada = await Producto.findOne({ descripcion });
+
+        if (productoEncontrado) {
+            return res.status(400).json({ msg: 'El nombre del producto ya se encuentra en uso' });
+        }
+
+        if (descripcionEncontrada) {
+            return res.status(400).json({ msg: 'La descripción del producto ya se encuentra en uso' });
+        }
+
         const { body } = req;
         const newProducto = new Producto({ ...body });
-
         await newProducto.save();
         res.send(newProducto);
     } catch (error) {
