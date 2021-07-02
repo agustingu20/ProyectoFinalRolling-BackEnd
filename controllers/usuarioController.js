@@ -70,21 +70,37 @@ exports.updateUser = async (req, res) => {
         const updatedUser = await Usuario.findByIdAndUpdate(usuario.id, body, {
             new: true,
         });
-        res.send(updatedUser);
+        const usuarios = await Usuario.find({ categoryUser: 'admin' });
+
+        if (usuarios.length > 4) {
+            try {
+                res.send(updatedUser);
+            } catch (error) {
+                res.status(400).json({ msg: 'error al modificar el usuario' });
+                console.log('🚀 - error', error);
+            }
+        } else {
+            res.status(400).json({ msg: 'No se puede eliminar al Administrador' });
+        }
     } catch (error) {
         res.status(400).send('Hubo un error al actualizar el usuario');
     }
 };
 
 exports.deleteUsuario = async (req, res) => {
-    try {
-        const { usuarioID } = req.params;
-        const usuario = await Usuario.findById(usuarioID);
+    const { usuarioID } = req.params;
+    const usuario = await Usuario.findById(usuarioID);
+    const usuarios = await Usuario.find({ categoryUser: 'admin' });
 
-        await usuario.delete();
-        res.send({ msg: 'Usuario eliminado' });
-    } catch (error) {
-        res.status(400).json({ msg: 'error al eliminar el usuario' });
-        console.log('🚀 - error', error);
+    if (usuarios.length > 3) {
+        try {
+            await usuario.delete();
+            res.send({ msg: 'Usuario eliminado' });
+        } catch (error) {
+            res.status(400).json({ msg: 'error al eliminar el usuario' });
+            console.log('🚀 - error', error);
+        }
+    } else {
+        res.status(400).json({ msg: 'No se puede eliminar al Administrador' });
     }
 };
