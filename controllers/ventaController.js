@@ -7,7 +7,7 @@ exports.ventaProducto = async (req, res) => {
     if (!errores.isEmpty()) {
         return res.status(400).json({ msg: errores.array() });
     }
-    req.body.carrito?.map( async (producto) => {
+    req.body.carrito?.map(async (producto) => {
         let product = await Producto.findById(producto.producto)
         await product.save();
     })
