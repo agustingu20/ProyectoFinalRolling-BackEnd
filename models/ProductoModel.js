@@ -88,15 +88,10 @@ const productoSchema = mongoose.Schema({
         type: String,
         trim: true,
     },
-    // creator: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Usuario',
-    //     required: true,
-    // },
-    // createdAt: {
-    //     type: Date,
-    //     default: Date.now(),
-    // },
+    destaque: {
+        type: String,
+        trim: true,
+    },
 });
 
 module.exports = mongoose.model('Producto', productoSchema);
