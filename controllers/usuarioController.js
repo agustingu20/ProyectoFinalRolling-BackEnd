@@ -81,6 +81,7 @@ exports.deleteUsuario = async (req, res) => {
     const usuario = await Usuario.findById(usuarioID);
     const usuarios = await Usuario.find({ categoryUser: 'admin' });
 
+    // Condición para que como mínimo debe haber un usuario admin para poder eliminar otros usuarios //
     if (usuarios.length > 1) {
         try {
             await usuario.delete();
@@ -90,6 +91,6 @@ exports.deleteUsuario = async (req, res) => {
             console.log('🚀 - error', error);
         }
     } else {
-        res.status(400).json({ msg: 'No se puede eliminar al Administrador' });
+        res.status(400).json({ msg: 'No se puede eliminar al Usuario' });
     }
 };
