@@ -3,17 +3,16 @@ const { Schema } = mongoose;
 
 const VentasSchema = mongoose.Schema({
     usuario: {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: 'Usuario',
         required: true,
     },
     carrito: [
         {
-            producto: { type: Schema.Types.ObjectId, ref: 'Producto' },
+            producto: { type: String, ref: 'Producto' },
             cantidad: { type: Number, default: 1 },
         },
     ],
-
     total: {
         type: Number,
         trim: true,
@@ -69,7 +68,6 @@ const VentasSchema = mongoose.Schema({
         required: true,
         trim: true,
     },
-
     modalidadDePago: {
         type: String,
         trim: true,
