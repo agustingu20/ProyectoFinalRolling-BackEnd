@@ -50,6 +50,7 @@ $ npm run dev
 ## About the frontend app :computer:
 
 The frontend has a **section for administrators** and a **section for users**, where you can see the products by categories and a section about us.
+To enter to the section for administrators use **user: admin@adminrolltech.com** and **password: Admin123**.
 
 ###### Functionalities in administration :
 
